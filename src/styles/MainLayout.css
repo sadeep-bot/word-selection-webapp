@@ -1,0 +1,21 @@
+/***************** Style for main layout */
+.main-layout-widh {
+    max-width: 750px;
+    min-width: min(750px , 100vw);
+}
+
+.main-header {
+    display: flex;
+    min-height: 10vh;       
+
+    background-color:rgb(39, 39, 39)
+}
+.mainContainer {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    min-height: 90vh;        
+
+    background-color: rgb(231, 231, 133);
+    
+}

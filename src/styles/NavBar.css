@@ -1,0 +1,14 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    min-height: 100%;
+}
+
+.navbar button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: rgb(71, 71, 71);
+    border: none;
+}

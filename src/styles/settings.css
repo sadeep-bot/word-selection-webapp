@@ -1,0 +1,47 @@
+.setting-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 100%;
+    background-color: rgb(155, 128, 128);
+    height: 90vh;
+    
+}
+.setting-container h1 {
+    text-align: center;
+    background-color: azure;
+    margin-bottom: 20px;
+}
+
+
+.setting-container h3 {
+    margin: 0;
+    background-color: rgb(205, 218, 218);
+    padding: 3px;
+    border-bottom: 1px solid black;
+    border-radius: 5px 5px 0px 0px;
+    
+}
+
+.get-prompt-button-settings {
+    display: flex;
+    flex-direction: column;
+    min-height: 100px;
+    width: 100%;
+    background-color: rgb(84, 84, 97);
+    border-radius: 0px 0px 5px 5px;
+    padding: 20px;
+    
+}
+
+.get-prompt-button-settings label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+    width: 90%;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    background-color: rgb(136, 158, 158);
+}
