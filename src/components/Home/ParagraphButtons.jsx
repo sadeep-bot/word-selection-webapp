@@ -3,7 +3,7 @@ import { useData } from "../../context/DataContext"
 
 const ParagraphButtons = () => {
 
-    const { instructions, selectedItems, setSelectedItems, paragraph} = useData();
+    const { instructions, selectedItems, setSelectedItems, paragraph, copyToClipboard} = useData();
 
     const createPrompt = () => {
         if(selectedItems.length <= 0) {return};
@@ -35,8 +35,8 @@ const ParagraphButtons = () => {
     };
 
     const handleGetPrompt = () => {
-        copyThePrompt();
-        openChatGPT();    
+        if(copyToClipboard){copyThePrompt();} else {
+        openChatGPT();  }  
     }
 
     const handleRemoveLastWord = () => {
@@ -45,9 +45,11 @@ const ParagraphButtons = () => {
 
     const handleClear = () => {setSelectedItems([])}
 
+
+
     return(
         <div className="paragraph-buttons-container">
-            <button className="get-prompt-btn" onClick={handleGetPrompt}>Get Prompt</button>
+            <button className="get-prompt-btn" onClick={handleGetPrompt}>{copyToClipboard? 'Copy the prompt' :'Open in ChatGPT'}</button>
             <button className="remove-last-btn" onClick={handleRemoveLastWord}>Remove last word</button>
             <button className="clear-btn" onClick={handleClear}>Clear</button>
             

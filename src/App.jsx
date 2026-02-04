@@ -15,7 +15,7 @@ import './styles/MainLayout.css'
 function App() {
 
   return (
-   <BrowserRouter>
+   <BrowserRouter  basename="/word-selection-webapp">
     <DataProvider>
       <Routes >
         <Route element={<MainLayout />}>
