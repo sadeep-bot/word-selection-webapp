@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 import { useData } from "../context/DataContext";
@@ -7,13 +7,21 @@ import ParagraphButtons from "../components/Home/ParagraphButtons";
 
 
 import { BUILD_IN_INSTRUCTIONS } from "../utils/bildInInstructions";
+import { handleHomepagePaste } from "../utils/homepage-pasteListener"
 
 
 
 const Home = () => {
-    const {paragraph, setParagraph} = useData()
+    const {paragraph, setParagraph, setSelectedItems} = useData()
 
 
+    useEffect(() => {
+
+        const atPaste = handleHomepagePaste(setParagraph, setSelectedItems);
+
+        return atPaste;
+
+    }, []);
 
     return (
     <div className="homepage-container">

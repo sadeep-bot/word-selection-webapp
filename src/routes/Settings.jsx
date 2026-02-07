@@ -1,8 +1,8 @@
-import { useData } from "../context/DataContext";
+import {useSettings} from '../context/SettingsContext'
 
 const Settings = () => {
     
-    const {copyToClipboard, setCopyToClipboard} = useData();
+    const {copyToClipboard, setCopyToClipboard} = useSettings();
 
     const handleChange = (event) => {
         setCopyToClipboard(event.target.value === "copy");

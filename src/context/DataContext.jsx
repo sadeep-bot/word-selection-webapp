@@ -17,23 +17,9 @@ const DataProvider = ({children}) => {
     
     const [paragraph, setParagraph] = useState('');
 
-    //------------------------------------ settings --------------------------------------//
-    const localValForcopyToClipboard = () => {
-        const saved = localStorage.getItem("copyToClipboard");
-        return( saved !== null ? JSON.parse(saved) : true)
-    }
-    const [copyToClipboard, setCopyToClipboard] = useState(localValForcopyToClipboard);
-
-    useEffect(() => {
-        localStorage.setItem(
-            "copyToClipboard",
-            JSON.stringify(copyToClipboard)
-        );
-    },[copyToClipboard]);
-    // ------------------------------------------------------------------------------------- //
-
+    
     return(
-        <DataContext.Provider value={{copyToClipboard, setCopyToClipboard, selectedItems, setSelectedItems, instructions, setInstructions, paragraph, setParagraph}}>
+        <DataContext.Provider value={{ selectedItems, setSelectedItems, instructions, setInstructions, paragraph, setParagraph}}>
             {children}
         </DataContext.Provider>
     )

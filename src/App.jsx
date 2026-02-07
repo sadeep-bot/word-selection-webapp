@@ -2,6 +2,7 @@ import { BrowserRouter,  Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 
 import DataProvider from './context/DataContext'
+import SettingsProvider from './context/SettingsContext'
 import MainLayout from './components/MainLayout'
 import Home from './routes/Home'
 import Settings from './routes/Settings'
@@ -16,15 +17,17 @@ function App() {
 
   return (
    <BrowserRouter  basename="/word-selection-webapp">
-    <DataProvider>
-      <Routes >
-        <Route element={<MainLayout />}>
-          <Route path='/' element={<Home/>} />
-          <Route path='/settings' element={<Settings />} />
-          <Route path='/instructions' element={<InstructionsPage />} />
-        </Route>
-      </Routes>
-    </DataProvider>
+    <SettingsProvider>
+      <DataProvider>
+        <Routes >
+          <Route element={<MainLayout />}>
+            <Route path='/' element={<Home/>} />
+            <Route path='/settings' element={<Settings />} />
+            <Route path='/instructions' element={<InstructionsPage />} />
+          </Route>
+        </Routes>
+      </DataProvider>
+    </SettingsProvider>
    </BrowserRouter>
   )
 }

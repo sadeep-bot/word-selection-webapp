@@ -93,7 +93,7 @@
     padding-top: 6px;
 }
 
-.paragraph-buttons-container button {
+.paragraph-buttons-container .active-button, .deactive-button {
     border-radius: 3px;
     border: 1px solid black;
     color: rgb(14, 13, 13);
@@ -101,18 +101,38 @@
     font-size: medium;
     font-weight: bold;
 }
-.paragraph-buttons-container button:hover {
+.paragraph-buttons-container .active-button:hover {
     transform: scale(1.05);
     
 }
-.paragraph-buttons-container button:active {
+.paragraph-buttons-container .active-button:active {
     transform: scale(1);
     
+}
+
+.disabled-get-prompt-btn {
+    padding: 5px 35px;
+    background-color: rgb(136, 241, 136);
+    transform: none;       
+    transition: none;
+}
+.disabled-remove-last-btn {
+    padding: 5px 12px;
+    background-color: rgb(221, 187, 125);
+    transform: none;       
+    transition: none;
+}
+.disabled-clear-btn {
+    padding: 5px 60px; 
+    background-color: rgb(196, 126, 126);
+    transform: none;       
+    transition: none;
 }
 
 .get-prompt-btn {
     padding: 5px 35px;
     background-color: rgb(63, 243, 63);
+
 }
 .remove-last-btn {
     padding: 5px 12px;
