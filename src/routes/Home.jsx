@@ -38,7 +38,8 @@ const Home = () => {
         </div>
 
         <div className="paragraph-window">
-            <ParagraphDisplay />
+            
+            <ParagraphDisplay /> 
             <ParagraphButtons /> 
         </div>
     </div>)

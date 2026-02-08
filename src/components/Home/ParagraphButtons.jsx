@@ -1,11 +1,14 @@
-import { useData } from "../../context/DataContext"
 
 import {useState, useEffect } from "react";
+import { useSettings } from "../../context/SettingsContext";
+import { useData } from "../../context/DataContext"
+
 
 
 const ParagraphButtons = () => {
 
-    const { instructions, selectedItems, setSelectedItems, paragraph, copyToClipboard } = useData();
+    const { instructions, selectedItems, setSelectedItems, paragraph } = useData();
+    const {copyToClipboard} = useSettings();
 
     const createPrompt = () => {
 

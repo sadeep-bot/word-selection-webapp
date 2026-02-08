@@ -8,6 +8,7 @@ import Home from './routes/Home'
 import Settings from './routes/Settings'
 import InstructionsPage from './routes/InstructionsPage'
 
+
 import './App.css'
 import './styles/settings.css'
 import './styles/NavBar.css'

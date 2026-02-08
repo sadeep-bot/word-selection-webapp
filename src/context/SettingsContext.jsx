@@ -9,18 +9,24 @@ const SettingsProvider= ({children}) => {
 
     const [copyToClipboard, setCopyToClipboard] = useState(DEFAULT_SETTINGS.copyToClipboard);
     const [showInstruction, setShowInstruction] = useState(DEFAULT_SETTINGS.showInstruction);
+    const [allowSaveChanges, setAllowSaveChanges] = useState(false);
 
     useEffect(() => {
         const settings = getSettingsFromLocalStorage();
 
         setCopyToClipboard(settings.copyToClipboard);
         setShowInstruction(settings.showInstruction);
+
+        setAllowSaveChanges(true);
     }, [])
 
     useEffect(()=> {
+
+        if(!allowSaveChanges){return;}
+
         saveChangesToLocalStorage({copyToClipboard, showInstruction});
 
-    } ,[copyToClipboard, showInstruction])
+    } ,[copyToClipboard, showInstruction, allowSaveChanges])
 
 
     return(
