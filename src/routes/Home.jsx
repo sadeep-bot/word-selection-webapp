@@ -2,17 +2,20 @@ import { useState, useEffect } from "react";
 
 
 import { useData } from "../context/DataContext";
+import { useSettings } from "../context/SettingsContext";
 import ParagraphDisplay  from "../components/Home/ParagraphDisplay"
 import ParagraphButtons from "../components/Home/ParagraphButtons";
+import ShowInstructionButton from "../components/Home/ShowInstructionButton";
+import InstructionsWindow from "../components/Home/InstructionsWindow";
 
 
-import { BUILD_IN_INSTRUCTIONS } from "../utils/bildInInstructions";
 import { handleHomepagePaste } from "../utils/homepage-pasteListener"
 
 
 
 const Home = () => {
-    const {paragraph, setParagraph, setSelectedItems} = useData()
+    const {paragraph, setParagraph, setSelectedItems} = useData();
+    const {showInstruction} = useSettings()
 
 
     useEffect(() => {
@@ -25,7 +28,9 @@ const Home = () => {
 
     return (
     <div className="homepage-container">
-        <div className="instructions-window" ><pre>{BUILD_IN_INSTRUCTIONS} </pre></div>
+
+        {showInstruction ? <InstructionsWindow /> : <></> }
+        <ShowInstructionButton />
 
         <div className="paragraph-entering-window">
             <input type="text" value={paragraph}  onChange={(e) => setParagraph(e.target.value)}/> 

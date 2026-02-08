@@ -1,25 +1,30 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
+import { DEFAULT_SETTINGS } from "../utils/defaultSettings";
+import { saveChangesToLocalStorage, getSettingsFromLocalStorage } from "../utils/SettingsContext-functions";
+
 const SettingsContext = createContext();
 
 const SettingsProvider= ({children}) => {
 
-    const localValForcopyToClipboard = () => {
-        const saved = localStorage.getItem("copyToClipboard");
-        return( saved !== null ? JSON.parse(saved) : true)
-    }
-    const [copyToClipboard, setCopyToClipboard] = useState(localValForcopyToClipboard);
+    const [copyToClipboard, setCopyToClipboard] = useState(DEFAULT_SETTINGS.copyToClipboard);
+    const [showInstruction, setShowInstruction] = useState(DEFAULT_SETTINGS.showInstruction);
 
     useEffect(() => {
-        localStorage.setItem(
-            "copyToClipboard",
-            JSON.stringify(copyToClipboard)
-        );
-    },[copyToClipboard]);
+        const settings = getSettingsFromLocalStorage();
+
+        setCopyToClipboard(settings.copyToClipboard);
+        setShowInstruction(settings.showInstruction);
+    }, [])
+
+    useEffect(()=> {
+        saveChangesToLocalStorage({copyToClipboard, showInstruction});
+
+    } ,[copyToClipboard, showInstruction])
 
 
     return(
-        <SettingsContext.Provider value={{copyToClipboard, setCopyToClipboard,}}>
+        <SettingsContext.Provider value={{copyToClipboard, setCopyToClipboard, showInstruction, setShowInstruction}}>
             {children}
         </SettingsContext.Provider>
     )
