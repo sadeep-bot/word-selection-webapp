@@ -2,6 +2,7 @@
 export const handleHomepagePaste = (setParagraph, setSelectedItems) => {
 
     const handlePaste = (e) => {
+        e.preventDefault();
         const newText = e.clipboardData.getData("text");
 
         setParagraph(newText);
